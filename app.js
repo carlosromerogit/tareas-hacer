@@ -1,11 +1,11 @@
-const { menu } = require("./helpers/menu");
+const { showMenu, pauseOption } = require("./helpers/menu");
 
 console.clear();
 
 const main = async () =>{
 
-    menu();
-
+    showMenu();
+    pauseOption();
 }
 
 main();
