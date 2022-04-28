@@ -3,9 +3,21 @@ const { showMenu, pauseOption } = require("./helpers/menu");
 console.clear();
 
 const main = async () =>{
+    
+    let option = "";
+    
+    do {
+        
+        option = await showMenu();
+        
+        if(option !== "0") {
+            await pauseOption();
+        }
+        
+        console.clear();
+        
+    } while (option !== "0");
 
-    showMenu();
-    pauseOption();
 }
 
 main();
