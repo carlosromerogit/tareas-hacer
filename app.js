@@ -1,6 +1,5 @@
 const { inquirerOptions, readInput } = require("./helpers/inquirer");
 const { pauseOption } = require("./helpers/inquirer");
-const Task = require("./models/task");
 const Tasks = require("./models/tasks");
 
 console.clear();
@@ -22,7 +21,7 @@ const main = async () =>{
                       tasks.createTask(description);
                     break;
                 case "2":
-                    console.log(tasks._list);
+                    console.log(tasks.listArray);
                     break;
             
             }
