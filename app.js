@@ -1,10 +1,13 @@
-const { inquirerOptions } = require("./helpers/inquirer");
+const { inquirerOptions, readInput } = require("./helpers/inquirer");
 const { pauseOption } = require("./helpers/inquirer");
+const Task = require("./models/task");
+const Tasks = require("./models/tasks");
 
 console.clear();
 
 const main = async () =>{
     
+    const tasks = new Tasks();
     let option = "";
     
     do {
@@ -12,6 +15,18 @@ const main = async () =>{
         option = await inquirerOptions();
         
         if(option !== "0") {
+
+            switch (option) {
+                case "1":
+                      const description = await readInput('Descripción:');
+                      tasks.createTask(description);
+                    break;
+                case "2":
+                    console.log(tasks._list);
+                    break;
+            
+            }
+
             console.log('\n');
             await pauseOption();
         }
