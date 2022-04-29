@@ -1,4 +1,5 @@
-const { showMenu, pauseOption } = require("./helpers/menu");
+const { inquirerOptions } = require("./helpers/inquirer");
+const { pauseOption } = require("./helpers/menu");
 
 console.clear();
 
@@ -8,7 +9,7 @@ const main = async () =>{
     
     do {
         
-        option = await showMenu();
+        option = await inquirerOptions();
         
         if(option !== "0") {
             await pauseOption();
