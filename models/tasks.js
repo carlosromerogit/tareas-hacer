@@ -16,6 +16,11 @@ class Tasks {
         const task = new Task(description);
         this._list[task.id] = task;
     }
+    loadTask(data = []){
+        data.forEach( task =>{
+            this._list[task.id] = task;
+        } )
+    }
 }
 
 module.exports = Tasks;

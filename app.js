@@ -1,14 +1,22 @@
 const { inquirerOptions, readInput } = require("./helpers/inquirer");
 const { pauseOption } = require("./helpers/inquirer");
-const { saveDB } = require("./helpers/save-archive");
+const { saveDB, readDB } = require("./helpers/dbinteractions");
 const Tasks = require("./models/tasks");
 
 console.clear();
 
 const main = async () =>{
+
+    let option = "";
     
     const tasks = new Tasks();
-    let option = "";
+
+    const tasksDB = readDB();
+
+
+    if(tasksDB){
+        tasks.loadTask(tasksDB);
+    }
     
     do {
         
@@ -22,7 +30,7 @@ const main = async () =>{
                       tasks.createTask(description);
                     break;
                 case "2":
-                    console.log(tasks.listArray);
+                        console.log(tasks.listArray);
                     break;
             
             }
