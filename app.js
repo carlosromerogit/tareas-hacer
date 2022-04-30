@@ -1,5 +1,6 @@
 const { inquirerOptions, readInput } = require("./helpers/inquirer");
 const { pauseOption } = require("./helpers/inquirer");
+const { saveDB } = require("./helpers/save-archive");
 const Tasks = require("./models/tasks");
 
 console.clear();
@@ -31,6 +32,8 @@ const main = async () =>{
         }
         
         console.clear();
+
+        saveDB(tasks.listArray);
         
     } while (option !== "0");
 
