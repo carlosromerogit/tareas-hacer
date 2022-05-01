@@ -1,4 +1,5 @@
 const Task = require('./task');
+require('colors');
 
 class Tasks {
     constructor(){
@@ -16,10 +17,19 @@ class Tasks {
         const task = new Task(description);
         this._list[task.id] = task;
     }
-    loadTask(data = []){
+    loadTasks(data = []){
         data.forEach( task =>{
             this._list[task.id] = task;
         } )
+    }
+    listedTasks(){
+        this.listArray.forEach((task, index) =>{
+            const number = `${index + 1}.`.green;
+            const {description, date } = task;
+            const status = (date)? "Completado".green : "Pendiente".red;
+
+            console.log(`${number} ${description} :: ${status}`);
+        })
     }
 }
 

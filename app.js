@@ -13,9 +13,8 @@ const main = async () =>{
 
     const tasksDB = readDB();
 
-
     if(tasksDB){
-        tasks.loadTask(tasksDB);
+        tasks.loadTasks(tasksDB);
     }
     
     do {
@@ -30,7 +29,7 @@ const main = async () =>{
                       tasks.createTask(description);
                     break;
                 case "2":
-                        console.log(tasks.listArray);
+                        tasks.listedTasks();
                     break;
             
             }
