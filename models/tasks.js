@@ -27,10 +27,30 @@ class Tasks {
             const number = `${index + 1}.`.green;
             const {description, date } = task;
             const status = (date)? "Completado".green : "Pendiente".red;
-
             console.log(`${number} ${description} :: ${status}`);
         })
     }
-}
+    completedTasks(){
+        const completedTasks = this.listArray.filter( task =>{
+            return task.date !== null;
+        });
+        completedTasks.forEach((task, index) => {
+            const number = `${index + 1}.`.green;
+            const {description, date} = task; 
+            console.log(`${number} ${description} :: ${"completado".green} en: ${date}`);
+            })
+    }
+    pendingTasks(){
+        const pendingTasks = this.listArray.filter( task =>{
+            return task.date == null;
+        });
+        pendingTasks.forEach((task, index) => {
+            const number = `${index + 1}.`.green;
+            const {description, date} = task;
+            const pendingState = (date)? 'desconocido' : 'pendiente'.red;
+            console.log(`${number} ${description} :: ${pendingState}`);
+            })
+        }
+    }
 
 module.exports = Tasks;

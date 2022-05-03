@@ -29,8 +29,17 @@ const main = async () =>{
                       tasks.createTask(description);
                     break;
                 case "2":
+                        console.log("\n");
                         tasks.listedTasks();
                     break;
+                case "3":
+                        console.log("\n");
+                        tasks.completedTasks();
+                    break;
+                case "4":
+                        console.log("\n");
+                        tasks.pendingTasks();
+                break;
             
             }
 
