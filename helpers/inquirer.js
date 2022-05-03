@@ -97,9 +97,22 @@ const deleteTask = async (tasks = [])=>{
     return id;
 }
 
+const confirmDialog = async (message)=>{
+
+    const question = {
+        type:'confirm',
+        name:'ok',
+        message
+    }
+
+     const {ok} = await inquirer.prompt(question);
+     return ok;
+}
+
 module.exports = {
     inquirerOptions,
     pauseOption,
     readInput,
-    deleteTask
+    deleteTask,
+    confirmDialog
 }

@@ -1,4 +1,4 @@
-const { inquirerOptions, readInput, deleteTask } = require("./helpers/inquirer");
+const { inquirerOptions, readInput, deleteTask, confirmDialog } = require("./helpers/inquirer");
 const { pauseOption } = require("./helpers/inquirer");
 const { saveDB, readDB } = require("./helpers/dbinteractions");
 const Tasks = require("./models/tasks");
@@ -42,7 +42,11 @@ const main = async () =>{
                 break;
                 case "6":
                     const id = await deleteTask(tasks.listArray);
-                    console.log({id});
+                    const ok = await confirmDialog("¿Estás seguro que desea borrar esta tarea?");
+                    if(ok){
+                        tasks.deleteTask(id);
+                        console.log('\nTarea borrada correctamente');
+                    }
                     break;
             
             }
