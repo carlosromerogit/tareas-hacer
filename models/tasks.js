@@ -51,6 +51,9 @@ class Tasks {
             console.log(`${number} ${description} :: ${pendingState}`);
             })
         }
+    deleteTask(id = ''){
+        delete this._list[id];
+    }
     }
 
 module.exports = Tasks;

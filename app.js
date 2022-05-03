@@ -1,4 +1,4 @@
-const { inquirerOptions, readInput } = require("./helpers/inquirer");
+const { inquirerOptions, readInput, deleteTask } = require("./helpers/inquirer");
 const { pauseOption } = require("./helpers/inquirer");
 const { saveDB, readDB } = require("./helpers/dbinteractions");
 const Tasks = require("./models/tasks");
@@ -40,6 +40,10 @@ const main = async () =>{
                         console.log("\n");
                         tasks.pendingTasks();
                 break;
+                case "6":
+                    const id = await deleteTask(tasks.listArray);
+                    console.log({id});
+                    break;
             
             }
 
