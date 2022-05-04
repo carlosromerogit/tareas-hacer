@@ -54,6 +54,19 @@ class Tasks {
     deleteTask(id = ''){
         delete this._list[id];
     }
+    toggleCompleted(ids = []){
+        ids.forEach(id => {
+            const task = this._list[id];
+            if(!task.date){
+                task.date = new Date().toISOString()
+            }
+        });
+        this.listArray.forEach(task => {
+            if(!ids.includes(task.id)){
+                this._list[task.id].date = null;
+            }
+        })
+    }
     }
 
 module.exports = Tasks;
